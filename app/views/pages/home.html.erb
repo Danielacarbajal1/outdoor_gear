@@ -9,11 +9,11 @@
       <a href="#" class="navbar-lewagon-link">Requests <span class="badge badge-pill badge-secondary text-white">5</span></a>
     </div>
     <div class="dropdown">
-      <img src='https://via.placeholder.com/150' class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+      <img src='https://kitt.lewagon.com/placeholder/users/cveneziani' class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#"><i class="fas fa-user"></i>Account</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i>Settings</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Account</a><br>
+          <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i> Settings</a><br>
+          <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a><br>
         </div>
      </div>
   </div>
@@ -33,3 +33,7 @@
     </div>
   </div>
 </div>
+
+<% @gears.each do |gear| %>
+  <% gear.name %>
+<% end %>
