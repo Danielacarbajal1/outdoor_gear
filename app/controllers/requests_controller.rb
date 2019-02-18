@@ -6,7 +6,6 @@ class RequestsController < ApplicationController
   end
 
   def show
-    @request = Request.find(params[:id])
   end
 
   def new
@@ -14,8 +13,6 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @request = Request.new(requests_params)
-
     if @request.save
       redirect_to requests_path(@request)
     else
@@ -24,16 +21,13 @@ class RequestsController < ApplicationController
   end
 
   def edit
-    @request = Request.find(params[:id])
   end
 
   def update
-    @request = Request.find(params[:id])
     @request.update(params[:request])
   end
 
   def destroy
-    @request = Request.find(params[:id])
     @request.destroy
   end
 
