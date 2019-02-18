@@ -6,7 +6,6 @@ class GearsController < ApplicationController
   end
 
   def show
-    @gear = Gear.find(params[:id])
   end
 
   def new
@@ -14,8 +13,6 @@ class GearsController < ApplicationController
   end
 
   def create
-    @gear = Gear.new(gears_params)
-
     if @gear.save
       redirect_to gears_path(@gear)
     else
@@ -24,16 +21,13 @@ class GearsController < ApplicationController
   end
 
   def edit
-    @gear = Gear.find(params[:id])
   end
 
   def update
-    @gear = Gear.find(params[:id])
     @gear.update(params[:gear])
   end
 
   def destroy
-    @gear = Gear.find(params[:id])
     @gear.destroy
   end
 
