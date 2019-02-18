@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :user, do
   resources :gear, do
-  resources :booking
+  resources :request
     end
   end
 
