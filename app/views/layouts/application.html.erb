@@ -7,21 +7,34 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+    <div class="navbar-lewagon">
+  <div class="navbar-lewagon-link"> <%= link_to "Add Gear", new_gear_path(@gear) %></div>
+  </a>
+
+  <!-- displayed on laptops -->
+  <div class="navbar-lewagon-actions d-none d-sm-flex">
+    <div class="badge-container">
+      <a href="#" class="navbar-lewagon-link">Requests <span class="badge badge-pill badge-secondary text-white">5</span></a>
+    </div>
+    <div class="dropdown">
+      <img src='https://via.placeholder.com/150' class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#"><i class="fas fa-user"></i>Account</a><br>
+          <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a><br>
+        </div>
+     </div>
+  </div>
+</div>
     <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- Gmaps JavaScript -->
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzER7O10ZOUp7FloJzMe2r8X1GIQhgt7Q&callback=initMap">
-        </script>
   </body>
 </html>
