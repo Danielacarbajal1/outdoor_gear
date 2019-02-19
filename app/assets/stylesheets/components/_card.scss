@@ -1,0 +1,90 @@
+h5 {
+    font-size: 1.28571429em;
+    font-weight: 700;
+    line-height: 1.2857em;
+    margin: 0;
+    text-decoration: none;
+}
+
+.card-container-with-map {
+  width: 50%;
+  a:hover {
+    text-decoration: none;
+  }
+
+}
+
+.map-container {
+  height: 1000px;
+}
+
+.card {
+    font-size: 1em;
+    padding: 10px;
+    text-decoration: none;
+    img {
+      border-radius: 3px;
+
+    }
+}
+
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    border: none;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+
+.card-title {
+    font-size: 1.28571429em;
+    font-weight: 700;
+    line-height: 1.2857em;
+    text-decoration: none;
+}
+
+.card-text {
+    clear: both;
+    margin-top: .5em;
+    color: rgba(0, 0, 0, .68);
+    text-decoration: none;
+}
+
+.card-footer {
+    font-size: 1em;
+    position: static;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    padding: .75em 1em;
+    color: rgba(0, 0, 0, .4);
+    border-top: 1px solid rgba(0, 0, 0, .05) !important;
+    background: #fff;
+    text-decoration: none;
+}
+
+
+.text-bold {
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.meta {
+    font-size: 1em;
+    color: rgba(0, 0, 0, .4);
+    text-decoration: none;
+}
+
+.meta a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, .4);
+    text-decoration: none;
+}
+
+.meta a:hover {
+    color: rgba(0, 0, 0, .87);
+    text-decoration: none;
+}
