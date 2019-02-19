@@ -51,6 +51,27 @@ body {
   background-attachment: fixed;
 }
 
+.log-in-form{
+
+}
+
+.log-in-page{
+  h2{
+    color: #119d24;
+  }
+  background-image: url("https://images.pexels.com/photos/15382/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  overflow: auto;
+  overflow-y: scroll;
+  height: 800px;
+  background-size: 1500px 1000px;
+  background-color: #cccccc;
+  background-attachment: fixed;
+  align-content: center;
+  a{
+    color: #119d24;
+  }
+}
+
 .homepage{
   background-image: url("https://images.pexels.com/photos/15382/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   overflow: auto;
