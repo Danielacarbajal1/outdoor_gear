@@ -1,6 +1,6 @@
 class GearsController < ApplicationController
   before_action :set_gear, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @gears = Gear.all
   end
@@ -13,8 +13,10 @@ class GearsController < ApplicationController
   end
 
   def create
-    if @gear.save
-      redirect_to gears_path(@gear)
+    @gear = Gear.new(gear_params)
+    @gear.user = current_user
+    if @gear.save!
+      redirect_to gear_path(@gear)
     else
       render :new
     end
@@ -33,8 +35,9 @@ class GearsController < ApplicationController
 
   private
 
-  def gears_params
-    params.require(:gear).permit(:id, :user_id, :name, :price, :category, :size, :description)
+  def gear_params
+    params.require(:gear).permit(:name, :price, :category, :description, :photo)
+    
   end
 
   def set_gear
