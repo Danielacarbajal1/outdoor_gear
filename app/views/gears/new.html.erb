@@ -1,11 +1,15 @@
 <h1> Add a new gear</h1>
 <div class="col-xs-6">
-  <%= simple_form_for([user, gear]) do |f| %>
+  <%= simple_form_for([@user, @gear]) do |f| %>
     <%= f.input :name %>
-    <%= f.input :category : collection: ['skiing', 'camping', 'hiking', 'climbing'] %>
-    <%= f.input :size : collection: ['XS', 'S', 'M', 'L', 'XL'] %>
+    <%= f.input :category %>
+    <%= f.input :size %>
     <%= f.input :description %>
     <%= f.input :price %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
+
 </div>
+
