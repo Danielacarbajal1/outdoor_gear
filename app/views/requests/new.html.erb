@@ -1,8 +1,4 @@
-<h1>Requests#new</h1>
+<h1>Add a new request</h1>
 <div class="col-xs-6">
-  <%= simple_form_for [users, gear] do |f| %>
-    <%= f.input :start %>
-    <%= f.input :end %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-  <% end %>
+  <%= render "form" %>
 </div>
