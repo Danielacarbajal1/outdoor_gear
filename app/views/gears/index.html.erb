@@ -1,14 +1,48 @@
-<h1>Gears#index</h1>
-<p>Find me in app/views/gears/index.html.erb</p>
-<div id="map">
-    <script>
-      function initMap() {
-        // Create a map object and specify the DOM element for display.
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 52.5206, lng: 13.4098},
-          scrollwheel: false,
-          zoom: 8
-        });
-      }
-    </script>
+
+
+
+<div class="main-container map-container">
+  <div class="card-container-with-map">
+  <% @gears.each do |gear| %>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <%=link_to(gear_path(gear.id)) do %>
+      <div class="card">
+        <%= cl_image_tag gear.photo, height: 150, width: 250, crop: :fill %>
+        <div class="card-block">
+          <h4 class="card-title"><%= gear.name %></h4>
+          <div class="meta">
+            <h6><%= gear.category %></h6>
+          </div>
+          <div class="card-text"><%= gear.description %>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="float-right">..</span>
+          <span><i class=""></i><%= gear.price %>$/day</span>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+  <div id="map">
+        <script>
+        function initMap() {
+          // Create a map object and specify the DOM element for display.
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 45.5088, lng: -73.5878},
+            scrollwheel: true,
+            zoom: 8
+          });
+        }
+      </script>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <!-- Gmaps JavaScript -->
+      <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzER7O10ZOUp7FloJzMe2r8X1GIQhgt7Q&callback=initMap">
+          </script>
+  </div>
 </div>
