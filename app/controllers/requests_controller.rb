@@ -1,8 +1,9 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @request = Request.all
+    @requests = Request.all
   end
 
   def show
@@ -10,12 +11,21 @@ class RequestsController < ApplicationController
 
   def new
     @request = Request.new
+    @gear = Gear.find(params[:gear_id])
   end
 
   def create
+    @request = Request.new(request_params)
+    @gear = Gear.find(params[:gear_id])
+    @request.user = current_user
+    @request.gear = @gear
+
     if @request.save
-      redirect_to requests_path(@request)
+      # raise
+      # redirect_to gear_request_path(@request)
+      redirect_to root_path
     else
+    # raise
       render :new
     end
   end
@@ -33,8 +43,8 @@ class RequestsController < ApplicationController
 
   private
 
-  def requests_params
-    params.require(:request).permit(:id, :gear_id, :user_id)
+  def request_params
+    params.require(:request).permit(:gear_id, :user_id, :start, :end)
   end
 
   def set_request
