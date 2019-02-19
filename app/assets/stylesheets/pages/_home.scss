@@ -59,6 +59,9 @@ body {
   background-size: 1500px 1000px;
   background-color: #cccccc;
   background-attachment: fixed;
+  a{
+    color: #119d24;
+  }
 }
 
 .btn-search {
@@ -68,7 +71,6 @@ body {
   font-weight: bold;
   background: linear-gradient(#119d24, #22c938);
   transition: background 0.3s ease;
-  border: 1px solid #0F60C4;
   a{
     color: white;
   }
