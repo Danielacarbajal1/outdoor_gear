@@ -1,8 +1,22 @@
 <div class="log-in-page">
 <h1> Your Items </h1>
   <td><% @gears.each do |gear| %>
-  <%= gear.name %>
-<% end %>
+    <td class="col-sm-12 col-md-4 col-lg-4 ">
+      <%=link_to(gear_path(gear.id)) do %>
+      <div class="card">
+        <%= gear.name %>
+        <br>
+          <% end %>
+        Category: <%= gear.category %>
+        <br>
+        Price: $<%= gear.price %>
+        <br>
+        Description: <%= gear.description %>
+        <br>
+        <%= gear.photo %>
+      </div>
+    <% end %>
+  </td>
 </td>
 <h1> Your requests (coming soon)</h1>
 <%= link_to "Back to home page", root_path%>
