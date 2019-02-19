@@ -24,8 +24,21 @@ h5 {
     text-decoration: none;
     img {
       border-radius: 3px;
-
+      width: 100%;
     }
+}
+
+.card img:hover {
+    -webkit-filter: brightness(90%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 0.5s ease;
+}
+
+.card-price {
+  color: black
 }
 
 .card-block {
@@ -44,6 +57,7 @@ h5 {
     font-weight: 700;
     line-height: 1.2857em;
     text-decoration: none;
+    color: black;
 }
 
 .card-text {
@@ -64,13 +78,10 @@ h5 {
     border-top: 1px solid rgba(0, 0, 0, .05) !important;
     background: #fff;
     text-decoration: none;
+    display:flex;
+    justify-content: space-between;
 }
 
-
-.text-bold {
-    font-weight: 700;
-    text-decoration: none;
-}
 
 .meta {
     font-size: 1em;
@@ -78,13 +89,8 @@ h5 {
     text-decoration: none;
 }
 
-.meta a {
-    text-decoration: none;
-    color: rgba(0, 0, 0, .4);
-    text-decoration: none;
-}
 
-.meta a:hover {
-    color: rgba(0, 0, 0, .87);
-    text-decoration: none;
-}
+
+
+
+
