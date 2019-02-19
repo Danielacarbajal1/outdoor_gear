@@ -1,14 +1,11 @@
-<h1>Gears#index</h1>
-<p>Find me in app/views/gears/index.html.erb</p>
-<div id="map">
-    <script>
-      function initMap() {
-        // Create a map object and specify the DOM element for display.
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 52.5206, lng: 13.4098},
-          scrollwheel: false,
-          zoom: 8
-        });
-      }
-    </script>
+
+Gears Available<br><br>
+<% @gears.each do |gear| %>
+ <div class="col-xs-12 col-sm-12">
+<h1><%= gear.name %><br></h1>
+<h2>$<%= gear.price %><br></h2>
+<h3><%= gear.category %><br></h3>
+<h4><%= link_to "More info", gear %>
 </div>
+<% end %>
+
