@@ -1,0 +1,9 @@
+<div class="log-in-page">
+<h1> Your Items </h1>
+  <td><% @gears.each do |gear| %>
+  <%= gear.name %>
+<% end %>
+</td>
+<h1> Your requests (coming soon)</h1>
+<%= link_to "Back to home page", root_path%>
+</div>
