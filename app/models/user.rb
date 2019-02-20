@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   #validates :first_name, :last_name, :email_address, :phone_number, :address, presence: true, uniqueness: true
-
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   has_many :gears
 end
