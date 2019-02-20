@@ -31,6 +31,7 @@ class GearsController < ApplicationController
 
   def destroy
     @gear.destroy
+    redirect_to profile_path
   end
 
   private
