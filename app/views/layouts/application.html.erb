@@ -30,7 +30,8 @@
       <img src='https://via.placeholder.com/150' class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <div class="dropdown-item"><i class="fas fa-user"></i><%= link_to "Account", profile_path %></div><br>
-          <div class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log out</div><br>
+          <div class="dropdown-item"><% if user_signed_in? %><i class="fas fa-sign-out-alt"></i>
+          <%= link_to 'Logout', destroy_user_session_path, :method => :delete %> <% end %></div><br>
         </div>
      </div>
   </div>
