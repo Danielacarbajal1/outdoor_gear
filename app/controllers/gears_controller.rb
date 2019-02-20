@@ -3,6 +3,18 @@ class GearsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @gears = Gear.all
+
+    @markers = @gears.map do |gear|
+      next if gear.user.address.nil?
+      user = gear.user
+      {
+        lat: user.latitude,
+        lng: user.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        # Uncomment the above line if you want each of your markers to display a info window when clicked
+        # (you will also need to create the partial "/flats/map_box")
+      }
+    end
   end
 
   def show
