@@ -6,16 +6,18 @@
     <title>TODO</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+
+
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= stylesheet_link_tag 'application', media: 'all' %>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
-    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <div class="navbar-lewagon">
+      <%=link_to(root_path) do %>
       <img src="http://i66.tinypic.com/148d5k9.png" class="logo">
-
+      <% end %>
   <!-- displayed on laptops -->
   <div class="navbar-lewagon-actions d-none d-sm-flex">
   <div class="navbar-lewagon-link"> <%= link_to "Add Gear", new_gear_path(@gear) %></div>
@@ -39,6 +41,7 @@
     <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
     <%= yield %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
     <%= javascript_pack_tag 'application' %>
