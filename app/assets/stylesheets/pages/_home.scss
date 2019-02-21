@@ -6,7 +6,6 @@
 body {
   overflow: auto;
   overflow-y: scroll;
-  height: 800px;
   background-size: 1500px 1000px;
   background-color: #cccccc;
   background-attachment: fixed;
@@ -17,6 +16,7 @@ body {
   h2{
     color: #119d24;
   }
+  background-image: url("https://images.pexels.com/photos/15382/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-color: white !important;
   overflow: auto;
   overflow-y: scroll;
@@ -51,10 +51,14 @@ body {
 
 .homepage{
   background-image: url("https://images.pexels.com/photos/15382/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  max-height: 90vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
   overflow: auto;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 800px;
-  background-size: 1500px 1000px;
   background-color: #cccccc;
   background-attachment: fixed;
   a{
