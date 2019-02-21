@@ -1,2 +1,13 @@
-<h1>Requests#index</h1>
-<p>Find me in app/views/requests/index.html.erb</p>
+<h1>This is your request</h1>
+
+  <% @requests.each do |request| %>
+    <%= cl_image_tag request.gear.photo, height: 300, width: 400, crop: :fill %>
+    <h3 class="nameRequest"><%= request.gear.name.capitalize %></h3>
+    <!-- Start + End request -->
+    <p>Start: <%= request.start %></p>
+    <p>End: <%= request.end %></p>
+    <p class="catRequest"><strong><%= request.gear.category.capitalize %></strong></p>
+    <p class="descRequest"><%= request.gear.description.capitalize %></p>
+    <p class="status_pending">Pending</p>
+    <p class="priceRequest"><%= request.gear.price %>$/day</p>
+  <% end %>

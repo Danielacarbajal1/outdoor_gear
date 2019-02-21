@@ -3,10 +3,11 @@ class RequestsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @requests = Request.all
+    @request = Request.all
   end
 
   def show
+    @requests = Request.where(user: current_user)
   end
 
   def new
@@ -21,11 +22,8 @@ class RequestsController < ApplicationController
     @request.gear = @gear
 
     if @request.save
-      # raise
-      # redirect_to gear_request_path(@request)
-      # redirect_to @request
+      redirect_to gear_request_path(@gear, @request)
     else
-    # raise
       render :new
     end
   end
@@ -35,6 +33,7 @@ class RequestsController < ApplicationController
 
   def update
     @request.update(params[:request])
+    # @request.gear.user(params[:request])
   end
 
   def destroy
