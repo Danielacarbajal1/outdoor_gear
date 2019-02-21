@@ -1,13 +1,16 @@
+      <div class="search form-inline new-gear-inline">
         <center>
         <%= form_tag gears_path, method: :get do %>
         <%= text_field_tag :query,
         params[:query],
-        class: "input_large",
+        class: "input_large form-control",
         placeholder: "Find a gear" %>
-        <%= select_tag :category, options_for_select(["skiing", "camping", "hiking", "climbing"], params[:category]), {:include_blank => 'Please select...'}%>
-        <%= button_tag 'Submit', class: 'btn-search' %>
+         <%= select_tag :category, options_for_select(["skiing", "camping", "hiking", "climbing"], params[:category]), {:include_blank => 'Please select...', class: "form-control"}%>
+        <%= button_tag 'Submit', class: 'btn btn-primary btn-lg' %>
         <% end %>
-      </center>
+    </center>
+    </div>
+
 <div class="main-container map-container">
   <div class="card-container-with-map">
   <% @gears.each do |gear| %>
