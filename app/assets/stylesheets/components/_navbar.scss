@@ -5,10 +5,11 @@
   background: white;
   width: 100%;
   height: 50px;
-  padding: 16px 24px;
+  top: 0;
+  padding: 32px 24px;
   position: fixed;
   overflow: visible;
-  z-index:1
+  z-index:1;
 }
 
 .navbar-lewagon .logo{
