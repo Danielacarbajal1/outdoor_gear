@@ -23,7 +23,7 @@ class RequestsController < ApplicationController
     if @request.save
       # raise
       # redirect_to gear_request_path(@request)
-      redirect_to @gear
+      # redirect_to @request
     else
     # raise
       render :new

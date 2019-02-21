@@ -1,2 +1,15 @@
 <h1>This is your request</h1>
+<%= cl_image_tag @gear.photo, height: 300, width: 400, crop: :fill if @gear.photo.present? %>
+<h3><%= @gear.name %></h3>
+<p><%= @request.start %>
+<%= @request.end %></p>
+<p><strong><%= @gear.category %></strong></p>
+<p><%= @gear.description %></p>
+<div class="message-status">
+  <p class="status pending">Pending</p>
+  <p class="price"><%= @gear.price %></p>
+</div>
+
+
+
 
