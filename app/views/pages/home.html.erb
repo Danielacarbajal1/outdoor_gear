@@ -7,15 +7,17 @@
       <br>
       <br>
       <br>
-      <h1><strong>Welcome Back</strong></h1>
-      <p><%= link_to "Browse gears", gears_path %></p>
+      <h1><strong>Welcome Back, <%= current_user.first_name %></strong></h1>
+      <div class="search form-inline">
         <%= form_tag gears_path, method: :get do %>
         <%= text_field_tag :query,
         params[:query],
-        class: "input_large",
+        class: "input_large form-control",
         placeholder: "Find a gear" %>
-        <%= button_tag 'Submit', class: 'btn-search' %>
+         <%= select_tag :category, options_for_select(["skiing", "camping", "hiking", "climbing"], params[:category]), {:include_blank => 'Category', class: "form-control form-dropdown"}%>
+        <%= button_tag 'Submit', class: 'btn btn-primary btn-lg' %>
         <% end %>
     </center>
+    </div>
   </div>
 </body>
