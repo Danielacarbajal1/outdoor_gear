@@ -11,6 +11,11 @@
   z-index:1
 }
 
+.navbar-lewagon .logo{
+  border-radius: 50px;
+  width: 250px;
+}
+
 .navbar-lewagon .brand {
   width: 40px;
 }
@@ -22,7 +27,14 @@
 
 .navbar-lewagon .navbar-lewagon-actions .navbar-lewagon-link {
   margin-left: 24px;
-  color: #999999;
+  color: #999999 !important;
+  a {
+    color:#999999 !important;
+    text-decoration:none;
+  }
+  a:hover {
+    text-decoration: none;
+  }
 }
 .navbar-lewagon .navbar-lewagon-actions .navbar-lewagon-link:hover {
   color: #151515;

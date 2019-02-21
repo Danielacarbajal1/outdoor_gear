@@ -1,48 +1,44 @@
-
-
-
+        <center>
+        <%= form_tag gears_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "input_large",
+        placeholder: "Find a gear" %>
+        <%= button_tag 'Submit', class: 'btn-search' %>
+        <% end %>
+      </center>
 <div class="main-container map-container">
   <div class="card-container-with-map">
   <% @gears.each do |gear| %>
     <div class="col-sm-12 col-md-6 col-lg-6">
       <%=link_to(gear_path(gear.id)) do %>
       <div class="card">
-        <%= cl_image_tag gear.photo, height: 150, width: 250, crop: :fill %>
+        <%= cl_image_tag gear.photo, height: 185, width: 250, crop: :fill %>
         <div class="card-block">
-          <h4 class="card-title"><%= gear.name %></h4>
+          <h4 class="card-title"><%= gear.name.capitalize %></h4>
           <div class="meta">
-            <h6><%= gear.category %></h6>
+            <h6><%= gear.category.capitalize %></h6>
           </div>
-          <div class="card-text"><%= gear.description %>
+          <div class="card-text"><%= gear.description.capitalize %>
           </div>
         </div>
         <div class="card-footer">
-          <span class="float-right">..</span>
-          <span><i class=""></i><%= gear.price %>$/day</span>
+          <span class="float-right">Price:</span>
+          <span><i class="card-price"><strong></i><%= gear.price %>$/day</strong></span>
         </div>
       </div>
       <% end %>
     </div>
     <% end %>
   </div>
-  <div id="map">
-        <script>
-        function initMap() {
-          // Create a map object and specify the DOM element for display.
-          var map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 45.5088, lng: -73.5878},
-            scrollwheel: true,
-            zoom: 8
-          });
-        }
-      </script>
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <div id="map" data-markers= <%= @markers.to_json %>>
+<!--
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <!-- Latest compiled and minified JavaScript -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <!-- Gmaps JavaScript -->
       <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzER7O10ZOUp7FloJzMe2r8X1GIQhgt7Q&callback=initMap">
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB78DjQJg2xEvhMglrKc1HfKLKY6i6fOTk
+&callback=initMap">
           </script>
+          -->
   </div>
 </div>

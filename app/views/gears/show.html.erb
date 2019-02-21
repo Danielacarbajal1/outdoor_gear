@@ -1,5 +1,12 @@
-<h1>Gears#show</h1>
-<%= @gear.name %>
-<%= @gear.description %>
+<div class="card-product">
 <%= cl_image_tag @gear.photo, height: 300, width: 400, crop: :fill if @gear.photo.present? %>
+  <div class="card-product-infos">
+    <h2><%= @gear.name.capitalize %></h2>
+    <p> Category: <%= @gear.category.capitalize %></p>
+    <p><%= @gear.description.capitalize %></p>
+    <p>Price:<strong><%= @gear.price %>$/day</strong></p>
+  </div>
+</div>
+
+
 

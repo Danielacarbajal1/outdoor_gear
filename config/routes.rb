@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     resources :gears do
       resources :requests
   end
+  get 'profile', to: 'pages#profile'
 end

@@ -2,7 +2,24 @@ class GearsController < ApplicationController
   before_action :set_gear, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
+    if params[:query].present?
+      gear_query = "name ILIKE :query OR category ILIKE :query or description ILIKE :query"
+      @gears = Gear.where(gear_query, query: "%#{params[:query]}%")
+    else
     @gears = Gear.all
+  end
+
+    @markers = @gears.map do |gear|
+      next if gear.user.address.nil?
+      user = gear.user
+      {
+        lat: user.latitude,
+        lng: user.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        # Uncomment the above line if you want each of your markers to display a info window when clicked
+        # (you will also need to create the partial "/flats/map_box")
+      }
+    end
   end
 
   def show
@@ -31,12 +48,13 @@ class GearsController < ApplicationController
 
   def destroy
     @gear.destroy
+    redirect_to profile_path
   end
 
   private
 
   def gear_params
-    params.require(:gear).permit(:name, :price, :category, :description, :photo)
+    params.require(:gear).permit(:query, :name, :price, :category, :description, :photo, :categories_attributes => :name)
   end
 
   def set_gear
