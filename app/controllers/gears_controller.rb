@@ -2,9 +2,10 @@ class GearsController < ApplicationController
   before_action :set_gear, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    if params[:query].present?
-      gear_query = "name ILIKE :query OR category ILIKE :query or description ILIKE :query"
+    if params[:query].present? || params[:category].present?
+      gear_query = "name ILIKE :query OR description ILIKE :query"
       @gears = Gear.where(gear_query, query: "%#{params[:query]}%")
+      @gears = @gears.where("category ILIKE :category", category: "%#{params[:category]}%")
     else
     @gears = Gear.all
   end
