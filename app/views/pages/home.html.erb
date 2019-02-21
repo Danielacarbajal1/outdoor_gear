@@ -9,7 +9,13 @@
       <br>
       <h1><strong>Welcome Back</strong></h1>
       <p><%= link_to "Browse gears", gears_path %></p>
-      <button type="button" class="btn btn-search"><%=link_to "Search", "#" %></button>
+        <%= form_tag gears_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "input_large",
+        placeholder: "Find a gear" %>
+        <%= button_tag 'Submit', class: 'btn-search' %>
+        <% end %>
     </center>
   </div>
 </body>

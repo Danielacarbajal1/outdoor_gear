@@ -114,16 +114,25 @@ body {
 }
 
 .btn-search {
+  background: green;
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
   font-weight: bold;
-  background: linear-gradient(#119d24, #22c938);
   transition: background 0.3s ease;
   a{
     color: white;
   }
 }
+
+#button{
+   background: linear-gradient(#119d24, #22c938);
+  color: white;
+  a{
+    color: white;
+  }
+}
+
 .btn-search:hover {
   background: linear-gradient(#119d24, #22c938);
   color: white;
@@ -141,4 +150,6 @@ body {
   }
 }
 
-
+.input_large{
+  width: 300px;
+}

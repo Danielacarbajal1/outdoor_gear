@@ -2,7 +2,12 @@ class GearsController < ApplicationController
   before_action :set_gear, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
+    if params[:query].present?
+      gear_query = "name ILIKE :query OR category ILIKE :query or description ILIKE :query"
+      @gears = Gear.where(gear_query, query: "%#{params[:query]}%")
+    else
     @gears = Gear.all
+  end
 
     @markers = @gears.map do |gear|
       next if gear.user.address.nil?
@@ -49,7 +54,7 @@ class GearsController < ApplicationController
   private
 
   def gear_params
-    params.require(:gear).permit(:name, :price, :category, :description, :photo)
+    params.require(:gear).permit(:query, :name, :price, :category, :description, :photo, :categories_attributes => :name)
   end
 
   def set_gear
