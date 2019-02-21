@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_request, only: [:show, :edit, :update, :destroy, :accept, :decline]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -33,7 +33,21 @@ class RequestsController < ApplicationController
 
   def update
     @request.update(params[:request])
-    # @request.gear.user(params[:request])
+  end
+
+  def accept
+    @gear = @request.gear_id
+    @request.status = "accepted"
+    @request.save
+
+    redirect_to gear_request_path(@gear, @request)
+  end
+
+  def decline
+    @gear = @request.gear_id
+    @request.status = "declined"
+    @request.save
+    redirect_to gear_request_path(@gear, @request)
   end
 
   def destroy
@@ -43,7 +57,7 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:gear_id, :user_id, :start, :end)
+    params.require(:request).permit(:gear_id, :user_id, :start, :end, :status)
   end
 
   def set_request
