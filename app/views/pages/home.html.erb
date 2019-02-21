@@ -1,7 +1,7 @@
 <body>
   <div class="homepage">
     <center>
-      <h1><strong>Welcome Back</strong></h1>
+      <h1><strong>Welcome Back, <%= current_user.first_name %></strong></h1>
       <p><%= link_to "Browse gears", gears_path %></p>
         <%= form_tag gears_path, method: :get do %>
         <%= text_field_tag :query,
