@@ -28,9 +28,9 @@
         </div>
         <div class="navbar-lewagon-link"><%= link_to "Browse gears", gears_path %></div>
         <div class="navbar-lewagon-link"> <%= link_to "My gears", profile_path %></div>
-        <div class="dropdown">
+        <div class="dropdown"><% if user_signed_in? %>
           <%= cl_image_tag(current_user.photo,
-          width: 45, height: 45, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "dropdownMenuButton", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false") %>
+          width: 45, height: 45, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "dropdownMenuButton", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false") %> <% end %>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <div class="dropdown-item"><i class="fas fa-user"></i><%= link_to "Account", profile_path %></div><br>
               <div class="dropdown-item"><% if user_signed_in? %><i class="fas fa-sign-out-alt"></i>
