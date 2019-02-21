@@ -14,6 +14,7 @@
         params[:query],
         class: "input_large",
         placeholder: "Find a gear" %>
+         <%= select_tag :category, options_for_select(["skiing", "hiking"], params[:category]), {:include_blank => 'Please select...'}%>
         <%= button_tag 'Submit', class: 'btn-search' %>
         <% end %>
     </center>
