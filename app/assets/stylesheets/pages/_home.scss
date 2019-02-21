@@ -19,7 +19,9 @@ body {
 .log-in-page{
   h2{
     color: #119d24;
+    text-shadow: 2px 2px white;
   }
+  text-shadow: 2px 2px white;
   background-image: url("https://images.pexels.com/photos/15382/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-color: white !important;
   overflow: auto;
@@ -31,6 +33,7 @@ body {
   align-content: center;
   a{
     color: #119d24;
+    text-shadow: 2px 2px white;
   }
 }
 
@@ -72,20 +75,12 @@ body {
 }
 
 .btn-search {
-  background: green;
+  background: linear-gradient(#119d24, #22c938);
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
   font-weight: bold;
   transition: background 0.3s ease;
-  a{
-    color: white;
-  }
-}
-
-#button{
-   background: linear-gradient(#119d24, #22c938);
-  color: white;
   a{
     color: white;
   }
@@ -106,6 +101,13 @@ body {
   img {
     border-radius: 3px;
   }
+}
+
+.profile-information{
+  font-size: 24px;
+  border-color: green;
+  border-radius: 50;
+  border-style: dashed;
 }
 
 .input_large{
