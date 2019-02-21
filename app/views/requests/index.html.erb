@@ -8,6 +8,11 @@
     <p>End: <%= request.end %></p>
     <p class="catRequest"><strong><%= request.gear.category.capitalize %></strong></p>
     <p class="descRequest"><%= request.gear.description.capitalize %></p>
-    <p class="status_pending">Pending</p>
+
+    <% if current_user == @request.gear.user %>
+      <%= link_to "Accepted", accept_request_path(@resquest) %>
+      <%= link_to "Declined", decline_request_path(@resquest) %>
+    <% end %>
+
     <p class="priceRequest"><%= request.gear.price %>$/day</p>
   <% end %>
