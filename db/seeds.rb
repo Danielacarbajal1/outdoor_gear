@@ -11,6 +11,8 @@ user = User.create!(
   email: Faker::Internet.email,
   phone_number: Faker::PhoneNumber.phone_number,
   address: Faker::Address.street_address,
+  latitude: Faker::Address.latitude,
+  longitude: Faker::Address.longitude,
   password: Faker::Internet.password(10, 20)
   )
 
@@ -22,6 +24,7 @@ Gear.create!(
   size: 'L',
   description: 'These hiking shoes are great for trekking the great outdoors. They allow water vapour to escape while keeping mud and water out.'
   )
+
 Gear.create(
   user: user,
   name: '4-Person Tent',
@@ -30,6 +33,7 @@ Gear.create(
   size: 'L',
   description: 'Never feel lonely with this 4 person tent. Material is super easy to step up, but strong enough and durable enough to handle even the biggest of hurricanes'
 )
+
 Gear.create(
   user: user,
   name: '1-Person Tent',
@@ -38,6 +42,7 @@ Gear.create(
   size: 'S',
   description: 'Want solitude during your nights rest? Enjoy this one person tent, with super-durable and waterproof material'
 )
+
 Gear.create(
   user: user,
   name: 'Headlamp',
