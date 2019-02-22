@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <title>Outdoor Geeks</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
 
@@ -14,34 +14,46 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
   </head>
   <body>
-    <div class="navbar-lewagon">
-      <%=link_to(root_path) do %>
-      <img src="http://i66.tinypic.com/148d5k9.png" class="logo">
+    <div class="navbar-wagon">
+      <!-- Logo -->
+      <%=link_to(root_path, class: "navbar-wagon-brand") do %>
+        <img src="http://i66.tinypic.com/148d5k9.png">
       <% end %>
-  <!-- displayed on laptops -->
-      <div class="navbar-lewagon-actions d-none d-sm-flex">
-        <div class="navbar-lewagon-link"> <%= link_to "Add Gear", new_gear_path(@gear) %></div>
-        <div class="badge-container">
-          <div class="navbar-lewagon-link">
-            Requests<span class="badge badge-pill badge-secondary text-white"></span>
+
+      <!-- Right Navigation -->
+      <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+        <%= link_to "Search gears", gears_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Add Gear", new_gear_path(@gear), class: "navbar-wagon-item navbar-wagon-link" %>
+
+        <!-- Profile picture with dropdown list -->
+        <div class="navbar-wagon-item">
+          <div class="dropdown">
+            <%= cl_image_tag(current_user.photo,
+          width: 45, height: 45, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle": "dropdown") %>
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <li><%= link_to "Account", profile_path %></li>
+              <li><% if user_signed_in? %>
+            <%= link_to 'Log Out', destroy_user_session_path, :method => :delete %> <% end %></li>
+            </ul>
           </div>
         </div>
-        <div class="navbar-lewagon-link"><%= link_to "Browse gears", gears_path %></div>
-        <div class="navbar-lewagon-link"> <%= link_to "My gears", profile_path %></div>
-        <div class="dropdown">
-          <%= cl_image_tag(current_user.photo,
-          width: 45, height: 45, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "dropdownMenuButton", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false") %>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <div class="dropdown-item"><i class="fas fa-user"></i><%= link_to "Account", profile_path %></div><br>
-              <div class="dropdown-item"><% if user_signed_in? %><i class="fas fa-sign-out-alt"></i>
-              <%= link_to 'Logout', destroy_user_session_path, :method => :delete %> <% end %></div><br>
-            </div>
-         </div>
       </div>
-  </div>
-</div>
+
+      <!-- Dropdown appearing on mobile only -->
+      <div class="navbar-wagon-item hidden-md hidden-lg">
+        <div class="dropdown">
+          <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li><a href="#">Host</a></li>
+            <li><a href="#">Trips</a></li>
+            <li><a href="#">Messagese</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
 
     <%= javascript_include_tag 'application' %>
