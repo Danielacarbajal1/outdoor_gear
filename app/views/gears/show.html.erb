@@ -10,8 +10,37 @@
     <h2 class="card-trip-pricing"><%= @gear.price %>$/day</h2>
     <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
   </div>
-</div>
 
+
+<div class="container">
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Make a request</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h1 class="modal-title">Add a new request</h1>
+        </div>
+
+        <%= simple_form_for([@gear, @request]) do |f| %>
+          <%= f.input :start, as: :date, html5: true%>
+          <%= f.input :end, as: :date, html5: true %>
+        <div class="modal-footer">
+          <%= button_tag 'OK', class: 'btn btn-primary btn-lg'  %>
+        </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
 
 
 

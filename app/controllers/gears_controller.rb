@@ -1,6 +1,7 @@
 class GearsController < ApplicationController
   before_action :set_gear, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     if params[:query].present? || params[:category].present?
       gear_query = "name ILIKE :query OR description ILIKE :query"
@@ -24,6 +25,7 @@ class GearsController < ApplicationController
   end
 
   def show
+    @request = Request.new
   end
 
   def new
