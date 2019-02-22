@@ -3,11 +3,12 @@ class RequestsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @request = Request.all
+    @requests = Request.all
   end
 
   def show
-    @requests = Request.where(user: current_user)
+    @gear = Gear.find(params[:gear_id])
+    @request.gear = @gear
   end
 
   def new
