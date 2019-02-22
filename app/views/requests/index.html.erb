@@ -1,4 +1,5 @@
 <h1>These are your requests</h1>
+<div class="col-sm-12 col-md-6 col-lg-6">
   <% @requests.each do |request| %>
     <%= cl_image_tag request.gear.photo, height: 300, width: 400, crop: :fill %>
     <h3 class="nameRequest"><%= request.gear.name.capitalize %></h3>
@@ -13,3 +14,4 @@
 
     <p class="priceRequest"><%= request.gear.price %>$/day</p>
   <% end %>
+</div>
