@@ -13,7 +13,7 @@ class User < ApplicationRecord
   def set_default_avatar
     @picture = self.photo
     if @picture.blank?
-      @picture_user = "https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png"
+      @picture_user = "http://chittagongit.com//images/coder-icon/coder-icon-4.jpg"
     else
       @picture_user = @picture.url
     end
