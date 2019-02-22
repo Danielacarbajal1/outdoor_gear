@@ -31,7 +31,11 @@
         <!-- Profile picture with dropdown list -->
         <div class="navbar-wagon-item">
           <div class="dropdown">
+            <% if current_user.present? %>
             <%= cl_image_tag(current_user.photo, width: 45, height: 45, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle": "dropdown") %>
+            <% elsif current_user.present? && current_user.photo.blank? %>
+              <%= image_tag(@picture_user) %>
+            <% end %>
             <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
               <li><%= link_to "Account", profile_path %></li>
               <li><% if user_signed_in? %>
