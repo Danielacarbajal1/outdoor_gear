@@ -22,7 +22,7 @@ class RequestsController < ApplicationController
     @request.gear = @gear
 
     if @request.save
-      redirect_to gear_request_path(@gear, @request)
+      redirect_to profile_path
     else
       render :new
     end
