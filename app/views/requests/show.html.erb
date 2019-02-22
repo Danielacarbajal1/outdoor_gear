@@ -11,20 +11,24 @@
       <p class="catRequest"><strong><%= @request.gear.category.capitalize %></strong></p>
       <p class="descRequest"><%= @request.gear.description.capitalize %></p>
 
+      <% if @request.status.nil? %>
         <%= link_to "Accept", accept_request_path(@request) %>
         <%= link_to "Decline", decline_request_path(@request) %>
+        <% end %>
+
+        <h3> Status: </h3><h4><%= @request.status %></h4>
 
     <p class="priceRequest"><%= @request.gear.price %>$/day</p>
   </div>
   <div id="test">
-    <h1> About the owner</h1>
+    <h1> About the requester</h1>
     <%= cl_image_tag(current_user.photo,
           width: 250, height: 250, crop: :thumb, class: "profile-pic") %>
     <br><strong>Name:</strong> <%= @request.user.first_name %> <%= @request.user.last_name %>
     <br><strong>Address:</strong> <%= @request.user.address %>
     <br><strong>Joined this website on</strong> <%= @request.user.created_at %>
     <br>
-    <br><h2>Contact the owner</h2>
+    <br><h2>Contact the requester</h2>
     <br><strong>Phone Number:</strong> <%= @request.user.phone_number %>
     <br><strong>Email Address:</strong> <%= @request.user.email %>
 
