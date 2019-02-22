@@ -8,7 +8,7 @@ class RequestsController < ApplicationController
 
   def show
     @requests = Request.where(user: current_user)
-    @request = @requests.last
+    # @request = @requests.last
     @gear = Gear.find(params[:gear_id])
     @request.gear = @gear
   end
