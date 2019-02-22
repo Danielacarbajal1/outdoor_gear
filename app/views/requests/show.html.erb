@@ -1,17 +1,18 @@
-<div class="main-container map-container"">
+<div class="requests-show-main-area">
+  <div class="main-container map-container"">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <br>
+    <h1>This is your request</h1>
 
-  <h1>This is your request</h1>
+      <%= cl_image_tag @request.gear.photo, height: 300, width: 400, crop: :fill %>
+      <h3 class="nameRequest"><%= @request.gear.name.capitalize %></h3>
+      Start: <%= @request.start %><br>
+      End: <%= @request.end %><br>
+      <p class="catRequest"><strong><%= @request.gear.category.capitalize %></strong></p>
+      <p class="descRequest"><%= @request.gear.description.capitalize %></p>
 
-  <div class="col-sm-12 col-md-6 col-lg-6">
-    <%= cl_image_tag @request.gear.photo, height: 300, width: 400, crop: :fill %>
-    <h3 class="nameRequest"><%= @request.gear.name.capitalize %></h3>
-    <p>Start: <%= @request.start %></p>
-    <p>End: <%= @request.end %></p>
-    <p class="catRequest"><strong><%= @request.gear.category.capitalize %></strong></p>
-    <p class="descRequest"><%= @request.gear.description.capitalize %></p>
-
-      <%= link_to "Accept", accept_request_path(@request) %>
-      <%= link_to "Decline", decline_request_path(@request) %>
+        <%= link_to "Accept", accept_request_path(@request) %>
+        <%= link_to "Decline", decline_request_path(@request) %>
 
     <p class="priceRequest"><%= @request.gear.price %>$/day</p>
   </div>
@@ -26,5 +27,6 @@
     <br><h2>Contact the owner</h2>
     <br><strong>Phone Number:</strong> <%= @request.user.phone_number %>
     <br><strong>Email Address:</strong> <%= @request.user.email %>
+
   </div>
 </div>
