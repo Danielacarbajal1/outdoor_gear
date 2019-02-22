@@ -20,7 +20,7 @@
   <h1> Your Items </h1>
   <% @gears.each do |gear| %>
   <div class="card-product">
-    <%= cl_image_tag gear.photo, height: 185, width: 250, crop: :fill %>
+    <%= cl_image_tag gear.photo, height: 185, width: 250, crop: :fill if gear.photo.present? %>
     <div class="card-space">
    <div class="card-product-infos">
     <h2><%= gear.name %></h2>
