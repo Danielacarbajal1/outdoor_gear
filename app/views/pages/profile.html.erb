@@ -4,7 +4,7 @@
     <div class="col-sm-12 col-md-6 col-lg-6">
       <div class="profile-information">
       <%= cl_image_tag(current_user.photo,
-          width: 250, height: 250, crop: :thumb, gravity: :face, class: "profile-pic") %>
+          width: 250, height: 250, crop: :thumb, class: "profile-pic") %>
           <div class="card-block">
       <p><strong><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></strong></p>
       <h6 class="card-text"><strong>Email Address: </strong> <%= current_user.email %></h6>
@@ -20,6 +20,7 @@
   <h1> Your Items </h1>
   <% @gears.each do |gear| %>
   <div class="card-product">
+      <%=link_to(gear_path(gear.id)) do %>
     <%= cl_image_tag gear.photo, height: 185, width: 250, crop: :fill if gear.photo.present? %>
     <div class="card-space">
    <div class="card-product-infos">
@@ -31,9 +32,28 @@
     <p>Price: $<%= gear.price %></p>
     <button type="button" class="btn btn-link"><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, gear_path(gear), method: :delete, data: {confirm: "Are you sure you want to delete this gear?"}  %></button>
     </div>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+
+<div class= "product-card">
+  <h1> Your Requests </h1>
+  <% @requests.each do |request| %>
+  <div class="card-product">
+      <%=link_to(gear_request_path(request.gear, request)) do %>
+    <%= cl_image_tag request.gear.photo, height: 300, width: 400, crop: :fill if request.gear.photo.present? %>
+    <div class="card-space">
+   <div class="card-product-infos">
+    <h2><%= request.gear.name.capitalize %></h2>
+    </div>
+    <div class="price-destroy">
+    <button type="button" class="btn btn-link"><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, gear_path(request.gear), method: :delete, data: {confirm: "Are you sure you want to delete that request?"}  %></button>
+    </div>
     <% end %>
     </div>
   </div>
+  <% end %>
 </div>
-
 

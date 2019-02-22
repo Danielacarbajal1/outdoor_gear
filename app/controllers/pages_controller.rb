@@ -9,6 +9,7 @@ class PagesController < ApplicationController
 
   def profile
     @gears = Gear.where(user_id: current_user)
+    @requests = Request.where(user_id: current_user)
   end
 
   private
