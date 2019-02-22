@@ -5,7 +5,7 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :address, presence: true
+  validates :address, :first_name, :last_name, presence: true
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   has_many :gears
