@@ -8,6 +8,8 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.where(user: current_user)
+    @gear = Gear.find(params[:gear_id])
+    @request.gear = @gear
   end
 
   def new
