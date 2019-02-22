@@ -35,7 +35,7 @@
 
 .card-product img {
   height: 100%;
-  width: 120px;
+  width: 165px;
   object-fit: cover;
 }
 
@@ -51,9 +51,13 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  :hover {
+    text-decoration: none;
+  }
 }
 
 .card-space {
+  display:flex;
   justify-content: space-between;
 }
 
@@ -62,5 +66,10 @@
 }
 
 .product-card{
+
     margin-left: 400px;
+}
+
+.price-destroy {
+  margin-top: 25px;
 }
