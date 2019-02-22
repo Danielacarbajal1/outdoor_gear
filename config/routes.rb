@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       resources :requests
   end
   get 'profile', to: 'pages#profile'
+  get '/requests/:id/accept', to: 'requests#accept', as: "accept_request"
+  get '/requests/:id/decline', to: 'requests#decline', as: "decline_request"
 end
