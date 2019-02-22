@@ -1,33 +1,39 @@
-<div class="log-in-page">
-  <h1> Your profile information </h1>
-  <div class="profile-information">
-  Name: <%= current_user.first_name %> <%= current_user.last_name %><br>
-  Email Address: <%= current_user.email %><br>
-  Address: <%= current_user.address %><br>
-  Phone Number: <%= current_user.phone_number %>
+
+<div class="card-container-with-map">
+  <div class="profile-content">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <div class="profile-information">
+      <%= cl_image_tag(current_user.photo,
+          width: 250, height: 250, crop: :thumb, gravity: :face, class: "profile-pic") %>
+          <div class="card-block">
+      <p><strong><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></strong></p>
+      <h6 class="card-text"><strong>Email Address: </strong> <%= current_user.email %></h6>
+      <h6 class="card-text"><strong>Address: </strong> <%= current_user.address %></h6>
+      <h6 class="card-text"><%= link_to "Update infos", edit_user_registration_path %></h6>
+      </div>
+    </div>
+    </div>
+  </div>
 </div>
 
-<%= link_to "Change your profile information here", edit_user_registration_path %>
-<h1> Your Items </h1>
-  <td><% @gears.each do |gear| %>
-    <td class="col-sm-12 col-md-6 col-lg-4">
-      <%=link_to(gear_path(gear.id)) do %>
-      <div class="card-profile">
-        <%= gear.name %>
-        <br>
-          <% end %>
-        Category: <%= gear.category %>
-        <br>
-        Price: $<%= gear.price %>
-        <br>
-        Description: <%= gear.description %>
-        <br>
-          <%= cl_image_tag gear.photo, height: 185, width: 250, crop: :fill %><br>
-        <button type="button" class="btn btn-link"><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, gear_path(gear), method: :delete, data: {confirm: "Are you sure you want to delete this gear from the database?"}  %></button>
-      </div>
+<div class= "product-card">
+  <h1> Your Items </h1>
+  <% @gears.each do |gear| %>
+  <div class="card-product">
+    <%= cl_image_tag gear.photo, height: 185, width: 250, crop: :fill %>
+    <div class="card-space">
+   <div class="card-product-infos">
+    <h2><%= gear.name %></h2>
+    <p><%= gear.category %></p>
+    <p><%= gear.description %></p>
+    </div>
+    <div class="price-destroy">
+    <p>Price: $<%= gear.price %></p>
+    <button type="button" class="btn btn-link"><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, gear_path(gear), method: :delete, data: {confirm: "Are you sure you want to delete this gear?"}  %></button>
+    </div>
     <% end %>
-  </td>
-</td>
-<h1> Your requests (coming soon)</h1>
-<%= link_to "Back to home page", root_path%>
+    </div>
+  </div>
 </div>
+
+

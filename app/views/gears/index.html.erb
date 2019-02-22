@@ -1,19 +1,17 @@
-      <div class="search form-inline new-gear-inline">
-        <center>
-        <%= form_tag gears_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "input_large form-control",
-        placeholder: "Find a gear" %>
-         <%= select_tag :category, options_for_select(["skiing", "camping", "hiking", "climbing"], params[:category]), {:include_blank => 'Please select...', class: "form-control"}%>
-        <%= button_tag 'Submit', class: 'btn btn-primary btn-lg' %>
-        <% end %>
-    </center>
-    </div>
+<div class="search form-inline new-gear-inline">
+ <center>
+  <%= form_tag gears_path, method: :get do %>
+  <%= text_field_tag :query, params[:query], class: "input_large form-control",
+    placeholder: "Find a gear" %>
+  <%= select_tag :category, options_for_select(["skiing", "camping", "hiking", "climbing"], params[:category]), {:include_blank => 'Please select...', class: "form-control"}%>
+  <%= button_tag 'Submit', class: 'btn btn-primary btn-lg' %>
+  <% end %>
+  </center>
+</div>
 
 <div class="main-container map-container">
   <div class="card-container-with-map">
-  <% @gears.each do |gear| %>
+    <% @gears.each do |gear| %>
     <div class="col-sm-12 col-md-6 col-lg-6">
       <%=link_to(gear_path(gear.id)) do %>
       <div class="card">
@@ -36,12 +34,12 @@
     <% end %>
   </div>
   <div id="map" data-markers= <%= @markers.to_json %>>
-<!--
+  <!--
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB78DjQJg2xEvhMglrKc1HfKLKY6i6fOTk
-&callback=initMap">
+  &callback=initMap">
           </script>
           -->
   </div>

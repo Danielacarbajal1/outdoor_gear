@@ -7,7 +7,7 @@
       <br>
       <br>
       <br>
-      <h1><strong>Welcome Back, <%= current_user.first_name %></strong></h1>
+      <h1><strong>Welcome Back, <%= current_user.first_name.capitalize %></strong></h1>
       <div class="search form-inline">
         <%= form_tag gears_path, method: :get do %>
         <%= text_field_tag :query,

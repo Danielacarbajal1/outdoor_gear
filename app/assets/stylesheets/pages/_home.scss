@@ -22,13 +22,11 @@ body {
     text-shadow: 2px 2px white;
   }
   text-shadow: 2px 2px white;
-  background-image: url("https://images.pexels.com/photos/15382/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  background-color: white !important;
+  background-color: #fefefe;
   overflow: auto;
   overflow-y: scroll;
   height: 800px;
   background-size: 1500px 1000px;
-  background-color: #cccccc;
   background-attachment: fixed;
   align-content: center;
   a{
@@ -105,9 +103,7 @@ body {
 
 .profile-information{
   font-size: 24px;
-  border-color: green;
-  border-radius: 50;
-  border-style: dashed;
+
 }
 
 .input_large{

@@ -1,12 +1,18 @@
-<div class="card-product">
+<div class="container">
+<div class="card-trip">
 <%= cl_image_tag @gear.photo, height: 300, width: 400, crop: :fill if @gear.photo.present? %>
-  <div class="card-product-infos">
-    <h2><%= @gear.name.capitalize %></h2>
-    <p> Category: <%= @gear.category.capitalize %></p>
-    <p><%= @gear.description.capitalize %></p>
-    <p>Price:<strong><%= @gear.price %>$/day</strong></p>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= @gear.name.capitalize %></h2>
+      <p>Category: <%= @gear.category.capitalize %></p>
+      <p><%= @gear.description.capitalize %></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= @gear.price %>$/day</h2>
+    <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
   </div>
 </div>
+
+
 
 
 
